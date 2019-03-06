@@ -1,0 +1,103 @@
+.white-cover {
+	z-index: 1;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	background: rgba(#fff, 0.7);
+}
+
+.quickview {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	min-width: 30%;
+	background: #fff;
+	box-shadow: 10px 5px 5px #dddddd;
+	.close-icon {
+		position: fixed;
+		top: 10px;
+		right: 10px;
+		font-size: 20px;
+		cursor: pointer;
+		&:hover {
+			opacity: 0.5;
+		}
+	} 
+}
+
+.quickview-container {
+	margin: 10px;
+	height: 100%;
+	overflow-x: auto;
+}
+
+// animation
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+.white-cover.open {
+	animation-name: fadeIn;
+	animation-duration: 0.3s;
+	.quickview {
+		animation-name: slideInRight;
+		animation-duration: 0.3s;
+	}
+}
+
+.white-cover.close {
+	animation-name: fadeOut;
+	animation-duration: 0.3s;
+	.quickview {
+		animation-name: slideOutRight;
+		animation-duration: 0.3s;
+		animation-fill-mode: forwards;
+	}	
+}
+
+.testrect {
+	background: #dddddd;
+	width: 100%;
+	height: 700px;
+}
